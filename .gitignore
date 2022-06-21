@@ -1,129 +1,72 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
 
-# C extensions
-*.so
+ #Lektion 7
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+# Slicing = skapa en så kallad "substring" genom att hämta olika delar från en annan string.
+# Vi kommer använda oss av två olika funktioner för att "Slica" en string.
+# Indexing[](indexing operator) eller slice() funktionen.
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+# Det finns tre olika fält vi kan fylla in för att beskriva vart och hur en string ska "slica"
+ #[start:stop:step]
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+#               Exempel 1
 
-# Translations
-*.mo
-*.pot
+# Första exemplet kommer gå in på hur index[] "Slicing" fungerar.
+# För att separera förnamnet från ett namn skrivs positionen hos den första och sista bokstaven i förnamnet in.
+# Genom att definiera variabeln "förnamn" som platsen där förnamnet befinner sig inom variabeln "namn" kan förnamnet slutligen "printas".
+ #[start:stop] --> [M:e] --> [0:3]
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+namn = "Moe Szyslak"
+förnamn = namn[0:3]
+print("Ditt förnamn är "+förnamn+ "!")
+print()
+# print(förnamn) --> Moe
+# ifall "förnamn = namn[0]" kommer endast bokstaven "M" "printas".
 
-# Flask stuff:
-instance/
-.webassets-cache
 
-# Scrapy stuff:
-.scrapy
+#               Exempel 2
 
-# Sphinx documentation
-docs/_build/
+# För att istället få fram efternamnet man göra en ytterligare "Slicing".
+efternamn = namn[4:11]
 
-# PyBuilder
-target/
+print("Ditt efternamn är "+efternamn+"!")
+print()
 
-# Jupyter Notebook
-.ipynb_checkpoints
 
-# IPython
-profile_default/
-ipython_config.py
+#               Exempel 3
 
-# pyenv
-.python-version
+# Vi kan nu även börja använda "step" delen vid Slicing.
+# När man använder sig av "step" kommer koden hoppa över delar av en "substring".
+# Python antar att du menar början och slutet av "stringen" då "start" och "stop" är tomma.
+ #[start:stop:step] --> [o:k:varannan] --> MeSylk
+halvnamn = namn[::2]
+print("Ditt namn med varannan bokstav är "+halvnamn+"!")
+print()
+# Ifall "tap" = 3 kommer var tredje bokstav "printas".
+ #print(halvnamn) --> M-- --y--a- --> M ya
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
+#               Exempel 4
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+# Genom att skriva step = -1 kommer "stringen" skrivas baklänges.
+omvänt_namn = namn[::-1]
+print("Ditt namn baklänges är "+omvänt_namn+"!")
+print()
 
-# SageMath parsed files
-*.sage.py
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+#               Exempel 5
 
-# Spyder project settings
-.spyderproject
-.spyproject
+#Vi ska nu använda oss av "slice()" för att 
+hemsida_1 = "https://wikipedia.org"
+slice_1 = slice(8,-4)
+print("Hemsidans namn är "+hemsida_1[slice_1]+"!")
+print()
 
-# Rope project settings
-.ropeproject
 
-# mkdocs documentation
-/site
+#               Exempel 6
+# Här kan vi göra samma process som innan för att exportera ut namnet på en hemsida ur dess URL.
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
+hemsida_2 = "https://www.youtube.com"
+slice_2 = slice(12,-4)
+print("Hemsidans namn är "+hemsida_2[slice_2]+"!")
+print()
